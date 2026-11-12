@@ -1,0 +1,285 @@
+/* =========================================================
+   Sai Teja Kathula - Portfolio styles (works with Bootstrap 5.3)
+   ========================================================= */
+
+/* ===== Colour tokens (light mode) ===== */
+:root {
+  --navy: #0f2a43;
+  --navy-deep: #0a1c2d;
+  --accent: #0d9488;
+  --accent-dark: #0b766c;
+  --accent-soft: #e0f5f2;
+
+  --card-bg: #ffffff;
+  --card-border: #dde5ea;
+
+  --bg-hero: linear-gradient(135deg, #e3f6f3 0%, #ffffff 50%, #e6eefb 100%);
+  --bg-about: #ffffff;
+  --bg-education: #eaf5f3;
+  --bg-skills: #ffffff;
+  --bg-projects: #0f2a43;
+  --bg-certs: #f1f5fb;
+  --bg-contact: linear-gradient(135deg, #0b766c 0%, #0f2a43 100%);
+}
+
+/* ===== Colour tokens (dark mode) ===== */
+[data-bs-theme="dark"] {
+  --accent: #2dd4bf;
+  --accent-dark: #5eead4;
+  --accent-soft: #13302d;
+
+  --card-bg: #1a2530;
+  --card-border: #2a3947;
+
+  --bg-hero: linear-gradient(135deg, #0f2a2a 0%, #101a24 55%, #121f33 100%);
+  --bg-about: #101a24;
+  --bg-education: #14222d;
+  --bg-skills: #101a24;
+  --bg-projects: #0a1722;
+  --bg-certs: #14222d;
+  --bg-contact: linear-gradient(135deg, #0b3b37 0%, #0a1722 100%);
+}
+
+/* ===== Base ===== */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.7;
+}
+
+section[id], header[id] { scroll-margin-top: 72px; }
+
+.text-accent { color: var(--accent); }
+
+/* ===== Buttons ===== */
+.btn-accent {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  font-weight: 500;
+}
+.btn-accent:hover, .btn-accent:focus {
+  background-color: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+[data-bs-theme="dark"] .btn-accent,
+[data-bs-theme="dark"] .btn-accent:hover { color: #08201d; }
+
+.btn-outline-accent {
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  background: transparent;
+  font-weight: 500;
+}
+.btn-outline-accent:hover, .btn-outline-accent:focus {
+  background-color: var(--accent);
+  color: #fff;
+}
+[data-bs-theme="dark"] .btn-outline-accent:hover { color: #08201d; }
+
+.text-bg-accent {
+  background-color: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 600;
+  padding: 0.5em 0.9em;
+}
+
+/* =========================================================
+   NAVIGATION BAR  (always navy so the links are easy to read)
+   ========================================================= */
+#mainNav {
+  background-color: var(--navy);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+}
+
+#mainNav .navbar-brand {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+#mainNav .nav-link {
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  transition: background-color 0.2s, color 0.2s;
+}
+#mainNav .nav-link:hover,
+#mainNav .nav-link:focus {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Link of the section you are currently viewing */
+#mainNav .nav-link.active {
+  color: #08201d;
+  background-color: var(--accent);
+  font-weight: 600;
+}
+
+#mainNav .navbar-toggler { border-color: rgba(255, 255, 255, 0.5); }
+#mainNav .theme-btn { width: 36px; height: 36px; padding: 0; }
+
+/* Mobile menu */
+@media (max-width: 991.98px) {
+  #mainNav .navbar-collapse {
+    margin-top: 0.7rem;
+    padding: 0.6rem 0 0.4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  #mainNav .nav-link { border-radius: 8px; }
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero {
+  min-height: 100vh;
+  padding: 120px 0 70px;
+  background: var(--bg-hero);
+}
+.hero-hello { font-size: 1.2rem; font-weight: 600; color: var(--accent); }
+
+.photo-frame {
+  width: min(340px, 80vw);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  padding: 8px;
+  background: linear-gradient(135deg, var(--accent), var(--navy));
+  box-shadow: 0 18px 44px rgba(15, 42, 67, 0.3);
+}
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: 50%;
+  border: 6px solid var(--card-bg);
+}
+
+.social-link { color: var(--bs-body-color); transition: color 0.2s, transform 0.2s; }
+.social-link:hover { color: var(--accent); transform: translateY(-3px); }
+
+/* =========================================================
+   SECTIONS - each one has its own background colour
+   ========================================================= */
+.section { padding: 90px 0; }
+
+#about          { background: var(--bg-about); }
+#education      { background: var(--bg-education); }
+#skills         { background: var(--bg-skills); }
+#projects       { background: var(--bg-projects); }
+#certifications { background: var(--bg-certs); }
+#contact        { background: var(--bg-contact); }
+
+.section-title {
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-bottom: 0.9rem;
+}
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  transform: translateX(-50%);
+  background-color: var(--accent);
+  border-radius: 2px;
+}
+
+/* Headings and text that sit directly on the dark sections */
+#projects .section-title,
+#contact .section-title { color: #ffffff; }
+#projects .section-title::after,
+#contact .section-title::after { background-color: #5eead4; }
+#contact .text-secondary { color: #d3e6e8 !important; }
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+}
+.skill-card, .project-card, .cert-card, .contact-card, .info-card {
+  box-shadow: 0 4px 16px rgba(15, 42, 67, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.skill-card:hover, .project-card:hover, .cert-card:hover, .contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(13, 148, 136, 0.22);
+}
+.contact-card { color: inherit; }
+
+.icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: var(--accent-soft);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+}
+
+.skill-badge {
+  background-color: var(--accent-soft);
+  color: var(--accent-dark);
+  font-weight: 500;
+  padding: 0.5em 0.85em;
+  border-radius: 999px;
+}
+[data-bs-theme="light"] .skill-badge { color: #0b6b62; }
+
+.info-list li { display: flex; gap: 0.9rem; padding: 0.55rem 0; align-items: flex-start; }
+.info-list i { color: var(--accent); font-size: 1.15rem; margin-top: 0.1rem; }
+.info-list span { word-break: break-word; }
+
+.project-points { padding-left: 1.1rem; }
+.project-points li { margin-bottom: 0.6rem; }
+
+/* =========================================================
+   FOOTER & BACK-TO-TOP
+   ========================================================= */
+.footer { background-color: var(--navy-deep); color: #cbd5db; }
+
+#backToTop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 46px;
+  height: 46px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1030;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+#backToTop.show { display: flex; }
+
+/* =========================================================
+   SMALL SCREENS
+   ========================================================= */
+@media (max-width: 575.98px) {
+  .section { padding: 70px 0; }
+  .hero { padding-top: 110px; text-align: center; }
+  .hero .d-flex { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .skill-card, .project-card, .cert-card, .contact-card, .social-link, #mainNav .nav-link { transition: none; }
+}
